@@ -1,0 +1,13 @@
+img
+    width: 100%
+
+.collection-wrapper
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    .collection-unit
+        h1
+            font-size: 1rem
+
+@media(max-width: 800px)
+    .collection-wrapper
+        grid-template-columns: repeat(2, 1fr)

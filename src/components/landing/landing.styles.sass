@@ -1,0 +1,22 @@
+.landing .container
+    height: 100vh
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    .unit
+        background:
+            size: cover
+            position: center
+        display: flex
+        justify-content: center
+        align-items: center
+        cursor: pointer
+        h1
+            background: white
+            padding: 2rem
+
+@media(max-width: 800px)
+    .landing .container
+        display: block
+        .unit
+            height: 40vh
+            margin-bottom: 1rem

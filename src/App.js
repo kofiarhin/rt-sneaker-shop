@@ -1,37 +1,41 @@
 import React from "react"
-import { connect  } from "react-redux"
-import { getUsers} from "./redux/actions/user.action"
-
+import  { Switch, Route } from "react-router-dom"
+import Home from "./pages/home/home.component"
+import Shop from "./pages/shop/shop.component"
+import Header from "./components/header/header.component"
+import Cart from "./pages/cart/cart.component"
+import "./app.styles.sass"
+import { connect } from "react-redux"
+import  Item from "./pages/item/item.component"
+import Checkout from "./pages/checkout/checkout.component"
+import { getShopData} from "./redux/shop/shop.action"
 
 class App extends React.Component {
 
-componentDidMount() {
-
-  this.props.dispatch(getUsers())
-
-    const { users} = this.props;
-
-    console.log({users})
-
-}
+  componentDidMount() {
+      this.props.dispatch(getShopData())
+  }
+ 
 
   render() {
 
     return <div>
-         <h1>Get Users</h1>
-    </div>
+
+          <Header /> 
+          <Switch>
+                <Route exact path="/"  component={Home}  />
+                <Route exact path="/shop" component={Shop} /> 
+                <Route exact path="/shop/:search" component={Shop} />
+                <Route exact path="/shop/:search/:id" component={Item} />
+                <Route exact path="/cart" component={Cart} />
+                <Route exact path="/checkout" component={Checkout} />
+            </Switch> 
+
+    </div> 
   }
 }
 
-const mapStateToProps =  state => ({
-  users: state.user.users
+const mapStateToProps = state => ({
+  shopData: state.shopData
 })
-
-// const mapDispatchToProps = dispatch => {
-
-//   return {
-//     getUsers: dispatch(getUsers)
-//   }
-// }
-
-  export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App)

@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap')
+
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+body
+    font-family: "Rubik"
+    padding-bottom: 20rem
+
+a
+    text-decoration: none
+    color: black
+button
+    outline: none
+    border: none
+    cursor: pointer
+h1, h2, h3, h4, h5, p
+    margin: 0
+
+body
+    padding-top: 4rem
+
+.container
+    width: 1200px
+    max-width: 90%
+    margin: 0 auto
+.title
+    text-align: center
+    margin-bottom: 1rem
+    text-transform: capitalize
+.items-wrapper
+    width: 1200px
+    max-width: 90%
+    margin: 0 auto
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-gap: 20px
+    grid-auto-row: 300px
+    .unit
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+    button
+        display: block
+        width: 100%
+        background: black
+        color: white
+        padding: 1rem 0rem
+        font-size: 1.2rem
+    img
+        width: 100%
+    h1
+        font-size: 1rem
+
+@media( max-width: 800px)
+    .items-wrapper
+        grid-template-columns: repeat(2, 1fr)

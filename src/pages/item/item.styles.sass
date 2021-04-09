@@ -1,0 +1,35 @@
+.main-item .container
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-gap: 20px
+    .thumb-wrapper
+        display: grid
+        grid-template-columns: repeat(4, 1fr)
+    img
+        width: 100%
+        pointer-events: none
+    .content
+        h1
+            margin-bottom: 1rem
+        p
+            margin-bottom: 1rem
+            line-height: 1.2
+        h2
+            margin-bottom: 2rem
+            font-size: 2rem
+
+    .content button
+        display: block
+        background: black
+        width: 100%
+        padding: 1rem 0rem
+        color: white
+        font-size: 1.2rem
+        cursor: pointer
+
+@media(max-width: 900px)
+    .main-item .container
+        display: block
+        .content
+            h1
+                font-size: 1.4rem
