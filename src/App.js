@@ -9,6 +9,9 @@ import { connect } from "react-redux"
 import  Item from "./pages/item/item.component"
 import Checkout from "./pages/checkout/checkout.component"
 import { getShopData} from "./redux/shop/shop.action"
+import Login from "./pages/login/login.component"
+import Register from "./pages/register/register.component"
+import Footer from "./components/footer/footer.component"
 
 class App extends React.Component {
 
@@ -29,7 +32,11 @@ class App extends React.Component {
                 <Route exact path="/shop/:search/:id" component={Item} />
                 <Route exact path="/cart" component={Cart} />
                 <Route exact path="/checkout" component={Checkout} />
-            </Switch> 
+                <Route exact  path="/login" component={Login} />
+                <Route exact  path="/register" component={Register} />
+            </Switch>
+
+            <Footer /> 
 
     </div> 
   }

@@ -7,7 +7,6 @@
 
 body
     font-family: "Rubik"
-    padding-bottom: 20rem
 
 a
     text-decoration: none
@@ -19,8 +18,10 @@ button
 h1, h2, h3, h4, h5, p
     margin: 0
 
-body
-    padding-top: 4rem
+ul
+    list-style-type: none
+    margin: 0
+    padding: 0
 
 .container
     width: 1200px
@@ -54,6 +55,43 @@ body
     h1
         font-size: 1rem
 
+.form-wrapper
+    width: 540px
+    max-width: 90%
+    margin: 0 auto
+    input
+        display: block
+        width: 100%
+        padding: 0.8rem 0rem
+        text-indent: 20px
+        font-size: 1.2rem
+        margin-bottom: 1rem
+    a
+        color: blue
+    button
+        display: block
+        background: black
+        width: 100%
+        color: white
+        padding: 1rem 0rem
+        margin-bottom: 1rem
+        transition: all ease-in-out 300ms
+        &:hover
+            background: white
+            border: 1px solid black
+            color: black
+        &.google
+            background: blue
+            cursor: pointer
 @media( max-width: 800px)
+    .title
+        font-size: 2rem
     .items-wrapper
         grid-template-columns: repeat(2, 1fr)
+
+    .form-wrapper
+        input
+            font-size: 1rem
+
+        button
+            font-size: 1rrem

@@ -58,6 +58,7 @@ class Cart extends React.Component {
 
                             <div className="button-wrapper">
                                 <Link to="/checkout" >Go To CheckOut</Link>
+                                <button className="clear" onClick={() => this.props.dispatch(clearCart())}>Clear Cart</button>
                             </div>
                         </div>
 

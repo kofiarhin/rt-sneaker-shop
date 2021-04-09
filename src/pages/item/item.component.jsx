@@ -123,7 +123,7 @@ class Item extends React.Component {
                                 <h1> {item.name}</h1>
                                 <p>{item.description} </p>
                                 <h2> ${item.price}</h2>
-                                <button onClick={this.handleAdd}>Add some </button>
+                                <button onClick={this.handleAdd}>Add To Cart</button>
                             </div>
 
                         </div>
