@@ -9,7 +9,7 @@ const SHOP_DATA = [
                 {
                     id:1,
                     name: "AIR JORDAN 1 MID PS 'BANNED'",
-                    price: 40033,
+                    price: 400,
                     description: " have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
                 },
 

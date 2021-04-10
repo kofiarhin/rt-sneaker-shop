@@ -1,14 +1,20 @@
 .header .container
     width: 1200px
     max-width: 90%
-    margin: 0 auto
+    margin: 0 auto 1rem auto
     display: flex
     align-items: center
     justify-content: space-between
-    margin-bottom: 2rem
     nav a
         margin-left: 1rem
     .links a
         margin-right: 1rem
     .options a
         margin-right: 0.8rem
+
+@media(max-width: 800px)
+    .header .container
+        display: block
+        text-align: center
+        a h1
+            margin-bottom: .8rem

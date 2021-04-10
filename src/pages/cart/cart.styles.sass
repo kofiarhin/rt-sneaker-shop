@@ -1,12 +1,12 @@
+
 .cart-message
     text-align: center
     font-size: 1.4rem
     text-transform: capitalize
     font-weight: 300
-
 .cart-wrapper .container
     width: 800px
-    backgroung: blue
+    min-height: 50vh
     img
         width: 300px
     .cart-unit
@@ -39,3 +39,19 @@
         margin-bottom: 1rem
         &.clear
             background: red
+
+@media(max-width: 500px)
+    .cart-wrapper .container
+        .cart-unit
+            margin-bottom: 2rem
+            img
+                width: 150px
+            .content h1
+                font-size: 1rem
+                margin-bottom: 0.5rem
+            .content p
+                margin-bottom: 0.5rem
+                font-size: 1rem
+            .content button
+                padding: 0.8rem 1rem
+                font-size: 0.8rem

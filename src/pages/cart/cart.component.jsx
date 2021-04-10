@@ -21,12 +21,11 @@ class Cart extends React.Component {
 
         const { cartData } = this.props
 
-        console.log(cartData)
 
         return <div className="cart-wrapper">
 
             {
-                cartData.length > 0 ?
+                cartData.length ?
 
                     <div>
 
@@ -47,7 +46,7 @@ class Cart extends React.Component {
                                         <div className="content">
                                             <h1> {item.name} </h1>
                                             <p className="price"> ${item.price} </p>
-                                            <p>Quantity:   <span>{item.quantity}</span> </p>
+                                            <p className="quantity">QTY:   <span>{item.quantity}</span> </p>
 
                                             <button onClick={() => console.log("remove item from cart")}>Remove</button>
                                         </div>
@@ -63,7 +62,11 @@ class Cart extends React.Component {
                         </div>
 
                     </div>
-                    : <div>  <h1 className="cart-message"> Your cart is empty  </h1> </div>
+                    : <div className="cart-wrapper">
+                        <div className="container">
+                            <h1 className="cart-message"> Your cart is empty  </h1>
+                        </div>
+                    </div>
             }
 
         </div>

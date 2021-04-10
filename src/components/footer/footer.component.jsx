@@ -20,9 +20,9 @@ const footer = () => {
             <div className="col">
                 <ul>
                     <li>  Information </li>
-                    <li> Facebook </li>
-                    <li> Instagram </li>
-                    <li> Twitter </li>
+                    <li> My Account</li>
+                    <li> Reviews </li>
+                    <li> Blog </li>
                 </ul>
             </div>
 
@@ -30,9 +30,11 @@ const footer = () => {
 
                 <ul>
                     <li>  Top Collection </li>
-                    <li> Facebook </li>
-                    <li> Instagram </li>
-                    <li> Twitter </li>
+                    <li> Jordans </li>
+                    <li> Nike </li>
+                    <li> Adidas </li>
+                    <li> Women </li>
+                    <li> Kids </li>
                 </ul>
             </div>
 
