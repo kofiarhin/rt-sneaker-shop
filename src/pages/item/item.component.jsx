@@ -79,13 +79,14 @@ class Item extends React.Component {
 
         const { search, item } = this.state;
 
-        return <div>
+        return <div className="main-item">
+
+            <h1 className="title"> {search}</h1>
 
             {
                 item ?
 
-                    <div className="main-item">
-                        <h1 className="title"> {search}</h1>
+                    <div>
 
                         <div className="container">
 
@@ -119,11 +120,22 @@ class Item extends React.Component {
                             </div>
 
                             <div className="content">
-
                                 <h1> {item.name}</h1>
-                                <p>{item.description} </p>
-                                <h2> ${item.price}</h2>
+                                <h2>£{item.price} <span>&UP</span></h2>
+
+
+                                <label htmlFor="quantity">Quantity</label>
+                                <input type="text" placeholder="Quantity" />
+
+                                <label>Select Your Size</label>
+
+                                <select name="" id="">
+                                    {item.sizes ? item.sizes.map((size, index) => <option key={index}> {size} </option>) : null}
+                                </select>
+
                                 <button onClick={this.handleAdd}>Add To Cart</button>
+
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam porro minima, asperiores ipsum, error autem obcaecati corporis molestiae impedit soluta, reprehenderit nesciunt ratione accusamus. Iure iusto accusantium quisquam doloribus cum!</p>
                             </div>
 
                         </div>

@@ -1,5 +1,6 @@
 import React from "react"
 import "./footer.styles.sass"
+import { Link } from "react-router-dom"
 
 const footer = () => {
 
@@ -30,11 +31,11 @@ const footer = () => {
 
                 <ul>
                     <li>  Top Collection </li>
-                    <li> Jordans </li>
-                    <li> Nike </li>
-                    <li> Adidas </li>
-                    <li> Women </li>
-                    <li> Kids </li>
+                    <li> <Link to="/shop/jordan">Jordans</Link></li>
+                    <li> <Link to="/shop/adidas">Adidas</Link></li>
+                    <li> <Link to="/shop/nike">Nike</Link></li>
+                    <li> <Link to="/shop/women">Women</Link></li>
+                    <li> <Link to="/shop/kids">Kids</Link></li>
                 </ul>
             </div>
 
