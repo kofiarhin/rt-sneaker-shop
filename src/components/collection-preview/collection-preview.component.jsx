@@ -21,7 +21,7 @@ const CollectionPreview = ({ title, shopData }) => {
                         <img src={`/img/${title}/${name}/img-1.jpeg`} alt="" />
                         <div className="text-wrapper">
                             <h1 className="item-name">  {name} </h1>
-                            <p className="price"> {price} </p>
+                            <p className="price"> £{price} </p>
                         </div>
 
                     </Link>

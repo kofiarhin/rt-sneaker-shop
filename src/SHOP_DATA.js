@@ -121,12 +121,14 @@ const SHOP_DATA = [
                 },
 
 
-                               {
+                {
                     id:14,
                     name: "ADIDAS YEEZY BOOST 380 'CALCITE GLOW'",
                     price: 279.99,
                     sizes: [34, 38, 40, 45]
                 },
+
+
             ]
         },
 
@@ -248,6 +250,20 @@ const SHOP_DATA = [
                     price: 400,
                     sizes: [34, 38, 40, 45]
                 },
+
+                {
+                    id:32,
+                    name: "AIR JORDAN 4 RETRO OG GS 'FIRE RED' 2020",
+                    price: 400,
+                    sizes: [34, 38, 40, 45]
+                },
+
+                  {
+                    id:33,
+                    name: "NIKE AIR MAX 90 WMNS 'VALENTINE'S DAY'",
+                    price: 400,
+                    sizes: [34, 38, 40, 45]
+                },
             ]
         },
 
@@ -284,6 +300,13 @@ const SHOP_DATA = [
                     id:27,
                     name: "NIKE DUNK LOW PS 'ORANGE PEARL'",
                     price: 430,
+                    sizes: [34, 38, 40, 45]
+                },
+
+                                 {
+                    id:34,
+                    name: "AIR JORDAN 1 RETRO HIGH OG PS 'SATIN RED'",
+                    price: 119.99,
                     sizes: [34, 38, 40, 45]
                 },
 
