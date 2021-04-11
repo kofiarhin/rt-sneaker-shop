@@ -7,7 +7,7 @@ const CollectionPreview = ({ title, shopData }) => {
 
     const { items } = shopData.find(item => item.title === title);
 
-    const newItems = items.slice(0, 4)
+    const newItems = items.slice(0, 5)
 
     return <div className="collection-preview">
 
