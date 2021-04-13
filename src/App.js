@@ -14,6 +14,7 @@ import Register from "./pages/register/register.component"
 import Footer from "./components/footer/footer.component"
 import { auth } from "./firebase/firebase.utils"
 import { setCurrentUser} from  "./redux/user/user.action"
+import Profile from "./pages/profile /profile.component"
 
 class App extends React.Component {
 
@@ -48,8 +49,9 @@ class App extends React.Component {
                 <Route exact path="/shop/:search/:id" component={Item} />
                 <Route exact path="/cart" component={Cart} />
                 <Route exact path="/checkout" component={Checkout} />
-                <Route exact  path="/login"  render={() => this.props.currentUser ?  <Redirect to="/" /> :  <Login />   } />
+                <Route exact  path="/login"  render={() => this.props.currentUser ?  <Profile />  :  <Login />   } />
                 <Route exact  path="/register" component={Register} />
+                <Route  path="/profile"  render={() => this.props.currentUser ?  <Profile />  : <Login />} />
             </Switch>
 
             <Footer /> 
