@@ -17,7 +17,7 @@ const CollectionPreview = ({ title, shopData }) => {
             {
                 newItems.map(({ name, price, id }) => (
 
-                    <Link to={`/shop/${title}/${id}`} className="preview-unit">
+                    <Link to={`/shop/${title}/${id}`} className="preview-unit" key={id}>
                         <img src={`/img/${title}/${name}/img-1.jpeg`} alt="" />
                         <div className="text-wrapper">
                             <h1 className="item-name">  {name} </h1>

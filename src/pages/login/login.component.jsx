@@ -1,27 +1,67 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
+import { signInWithGoogle, auth } from "../../firebase/firebase.utils"
+import { connect } from "react-redux"
+import { setCurrentUser } from "../../redux/user/user.action"
 
-const Login = () => {
+class Login extends React.Component {
 
-    return <div>
+    constructor() {
+        super()
+        this.state = {
+            email: "",
+            password: ""
+        }
+    }
 
-        <h1 className="title">  Login  </h1>
+    componentDidMount() {
 
-        <div className="form-wrapper">
-            <form action="">
+        const { currentUser = null } = this.props
 
-                <input type="text" name="email" placeholder="Email Address" />
-                <input type="password" name="password" placeholder="Password" />
-                <button>Login</button>
-                <button className="google">Login With Google</button>
+        if (currentUser) this.props.history.push("/")
 
-                <Link>Login Here</Link>
-                <p>Don't have an account? <Link to="/register">signup here</Link> </p>
-            </form>
+    }
+
+
+    handleSubmit = e => {
+
+        e.preventDefault();
+
+
+    }
+
+    handleChange = e => {
+
+        const { value, name } = e.target;
+        this.setState({
+            [name]: value
+        })
+    }
+
+    render() {
+        return <div>
+
+            <h1 className="title">  Login  </h1>
+
+            <div className="form-wrapper">
+                <form action="" onSubmit={this.handleSubmit}>
+
+                    <input type="text" name="email" placeholder="Email Address" onChange={this.handleChange} />
+                    <input type="password" name="password" placeholder="Password" onChange={this.handleChange} />
+                    <button>Login</button>
+                    <button className="google" onClick={signInWithGoogle}>Login With Google</button>
+
+                    <p>Don't have an account? <Link to="/register">signup here</Link> </p>
+                </form>
+            </div>
+
         </div>
-
-    </div>
+    }
 
 }
 
-export default Login
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+})
+
+export default connect(mapStateToProps)(Login)

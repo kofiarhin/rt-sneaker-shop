@@ -1,5 +1,5 @@
 import React from "react"
-import  { Switch, Route } from "react-router-dom"
+import  { Switch, Route, Redirect } from "react-router-dom"
 import Home from "./pages/home/home.component"
 import Shop from "./pages/shop/shop.component"
 import Header from "./components/header/header.component"
@@ -12,11 +12,27 @@ import { getShopData} from "./redux/shop/shop.action"
 import Login from "./pages/login/login.component"
 import Register from "./pages/register/register.component"
 import Footer from "./components/footer/footer.component"
+import { auth } from "./firebase/firebase.utils"
+import { setCurrentUser} from  "./redux/user/user.action"
 
 class App extends React.Component {
 
   componentDidMount() {
-      this.props.dispatch(getShopData())
+
+    console.log("???", this.props)
+
+      auth.onAuthStateChanged( user => {
+
+              this.props.dispatch(setCurrentUser(user))
+
+              if(user) {
+
+                this.props.dispatch( setCurrentUser(user))
+              } else {
+
+                this.props.dispatch( setCurrentUser(null))
+              }
+      })
   }
  
 
@@ -32,7 +48,7 @@ class App extends React.Component {
                 <Route exact path="/shop/:search/:id" component={Item} />
                 <Route exact path="/cart" component={Cart} />
                 <Route exact path="/checkout" component={Checkout} />
-                <Route exact  path="/login" component={Login} />
+                <Route exact  path="/login"  render={() => this.props.currentUser ?  <Redirect to="/" /> :  <Login />   } />
                 <Route exact  path="/register" component={Register} />
             </Switch>
 
@@ -43,6 +59,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  shopData: state.shopData
+  shopData: state.shopData,
+  currentUser: state.user.currentUser
 })
 export default connect(mapStateToProps)(App)
