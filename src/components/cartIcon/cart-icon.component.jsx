@@ -1,26 +1,23 @@
 import React from "react"
-import { Link, withRouter } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { connect } from "react-redux"
+const CartIcon = ({ cartData = [] }) => {
 
-const CartIcon = ({ cartCount }) => {
+    let sum = 0
 
+    cartData.forEach(item => {
 
-    return <Link to="/cart">
-        Cart <span> {cartCount ? cartCount : null} </span>
-    </Link>
+        sum += item.quantity
+    })
+
+    console.log(sum)
+
+    return <Link to="/cart"> Cart <span> {sum > 0 ? sum : null} </span></Link>
 }
 
+const mapStateToProps = state => ({
+    cartData: state.cart.cartData
+})
 
-const mapStateToProps = state => {
-
-    const cartCount = state.cart.cartData.reduce((acc, curr) => {
-        return acc += curr.quantity
-    }, 0)
-
-
-    return {
-        cartCount
-    }
-}
 
 export default connect(mapStateToProps)(CartIcon)

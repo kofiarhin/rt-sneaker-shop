@@ -11,7 +11,9 @@ class Item extends React.Component {
         this.state = {
             search: "",
             item: null,
-            imgNum: 1
+            imgNum: 1,
+            size: "",
+            quantity: 1
         }
     }
 
@@ -75,6 +77,30 @@ class Item extends React.Component {
         })
     }
 
+    handleChange = e => {
+        e.preventDefault()
+
+        const { name, value } = e.target;
+
+        this.setState({
+            [name]: value
+        })
+    }
+
+    handleSubmit = e => {
+        e.preventDefault()
+
+        const { item, quantity, size, search } = this.state;
+
+
+        this.props.dispatch(addItem({
+            ...item,
+            quantity: parseInt(quantity),
+            size,
+            search
+        }))
+    }
+
     render() {
 
         const { search, item } = this.state;
@@ -124,16 +150,28 @@ class Item extends React.Component {
                                 <h2>£{item.price} <span>&UP</span></h2>
 
 
-                                <label htmlFor="quantity">Quantity</label>
-                                <input type="text" placeholder="Quantity" />
 
-                                <label>Select Your Size</label>
 
-                                <select name="" id="">
-                                    {item.sizes ? item.sizes.map((size, index) => <option key={index}> {size} </option>) : null}
-                                </select>
+                                {/* add item form*/}
 
-                                <button onClick={this.handleAdd}>Add To Cart</button>
+                                <form onSubmit={this.handleSubmit}>
+
+                                    <label htmlFor="quantity">Quantity</label>
+
+                                    <input type="text" placeholder="Quantity" name="quantity" onChange={this.handleChange} required />
+
+
+                                    <label>Select Your Size</label>
+
+                                    <select name="" id="" onChange={this.handleChange} name="size" required>
+                                        <option value="">---</option>
+                                        {item.sizes ? item.sizes.map((size, index) => <option key={index} value={size}> {size} </option>) : null}
+                                    </select>
+
+                                    <button> Add Item</button>
+                                    {/* <button onClick={this.handleAdd}>Add To Cart</button> */}
+                                </form>
+
 
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam porro minima, asperiores ipsum, error autem obcaecati corporis molestiae impedit soluta, reprehenderit nesciunt ratione accusamus. Iure iusto accusantium quisquam doloribus cum!</p>
                             </div>

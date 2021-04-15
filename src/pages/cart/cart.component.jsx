@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 import "./cart.styles.sass"
-import { clearCart } from "../../redux/cart/cart.action"
+import { clearCart, removeItem } from "../../redux/cart/cart.action"
 import "./cart.styles.sass"
 
 class Cart extends React.Component {
@@ -19,8 +19,7 @@ class Cart extends React.Component {
 
     render() {
 
-        const { cartData } = this.props
-
+        const { cartData } = this.props;
 
         return <div className="cart-wrapper">
 
@@ -35,9 +34,9 @@ class Cart extends React.Component {
                         <div className="container">
                             {
 
-                                cartData.map(item => {
+                                cartData.map((item, index) => {
 
-                                    return <div className="cart-unit">
+                                    return <div className="cart-unit" key={index}>
 
                                         <div className="image-wrapper">
                                             <img src={`/img/${item.search}/${item.name}/img-1.jpeg`} alt="" />
@@ -46,9 +45,10 @@ class Cart extends React.Component {
                                         <div className="content">
                                             <h1> {item.name} </h1>
                                             <p className="price"> ${item.price} </p>
+                                            <p className="size">Size: {item.size} </p>
                                             <p className="quantity">QTY:   <span>{item.quantity}</span> </p>
 
-                                            <button onClick={() => console.log("remove item from cart")}>Remove</button>
+                                            <button onClick={() => this.props.dispatch(removeItem({ ...item, index }))}>Remove</button>
                                         </div>
 
                                     </div>

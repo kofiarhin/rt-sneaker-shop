@@ -1,4 +1,4 @@
-import { addItem } from "./cart-utility"
+import { addItem, removeItem } from "./cart-utility"
 const INITIAL_STATE = {
     cartData: []
 }
@@ -6,6 +6,9 @@ const INITIAL_STATE = {
 const cartReducer = ( state=INITIAL_STATE, action) => {
 
     switch(action.type) {
+
+        case "REMOVE_ITEM_FROM_CART":
+            return {...state, cartData: removeItem(state.cartData, action.payload) }
         
         case "ADD_ITEM":
             return { ...state, cartData: addItem(state.cartData, action.payload) }

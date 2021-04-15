@@ -8,21 +8,28 @@ import "./app.styles.sass"
 import { connect } from "react-redux"
 import  Item from "./pages/item/item.component"
 import Checkout from "./pages/checkout/checkout.component"
-import { getShopData} from "./redux/shop/shop.action"
 import Login from "./pages/login/login.component"
 import Register from "./pages/register/register.component"
 import Footer from "./components/footer/footer.component"
 import { auth } from "./firebase/firebase.utils"
 import { setCurrentUser} from  "./redux/user/user.action"
+import {getShopData} from "./redux/shop/shop.action"
 import Profile from "./pages/profile /profile.component"
 
 class App extends React.Component {
 
+  unsubscribe = null;
+
   componentDidMount() {
 
-    console.log("???", this.props)
 
-      auth.onAuthStateChanged( user => {
+    //  get shop data
+
+    this.props.dispatch( getShopData())
+
+
+    // set authentication
+      this.unsubscribe = auth.onAuthStateChanged( user => {
 
               this.props.dispatch(setCurrentUser(user))
 

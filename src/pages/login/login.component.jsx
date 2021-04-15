@@ -23,9 +23,21 @@ class Login extends React.Component {
     }
 
 
-    handleSubmit = e => {
+    handleSubmit = async e => {
 
         e.preventDefault();
+
+        const { email, password } = this.state;
+
+        try {
+            const { user } = await auth.signInWithEmailAndPassword(email, password)
+
+            console.log(user)
+        } catch (error) {
+
+            console.log(error.message)
+        }
+
 
 
     }

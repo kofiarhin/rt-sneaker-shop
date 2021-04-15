@@ -2,6 +2,8 @@
 
 // 31 items
 
+// change to objects for data normalization
+
 const SHOP_DATA = [
 
     // JORDAN
@@ -88,8 +90,9 @@ const SHOP_DATA = [
                 {
                     id:9,
                     name: "ADIDAS YEEZY 700 V3 'CLAY BROWN'",
-                    price: 400,
-                    description: " to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their "
+                    price: 480,
+                    sizes: [34, 38, 40, 45]
+
                 },
 
                 {
@@ -293,7 +296,7 @@ const SHOP_DATA = [
                     id:26,
                     name: "ADIDAS YEEZY BOOST 350 V2 KIDS 'YECHEIL'",
                     price: 430,
-                    description: " have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+                   sizes: [34, 38, 40, 45]
                 },
 
                 {
