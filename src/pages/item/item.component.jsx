@@ -152,9 +152,7 @@ class Item extends React.Component {
 
                             <div className="content">
                                 <h1> {item.name}</h1>
-                                <h2>£{item.price} <span>&UP</span></h2>
-
-
+                                <h2>${item.price} <span>&UP</span></h2>
 
 
                                 {/* add item form*/}
