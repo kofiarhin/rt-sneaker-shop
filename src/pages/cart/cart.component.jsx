@@ -14,6 +14,21 @@ class Cart extends React.Component {
         // this.props.dispatch(clearCart())
     }
 
+
+    renderTotal = () => {
+
+        const { cartData } = this.props
+
+        const total = cartData.reduce((acc, curr) => {
+
+            acc = acc + (curr.quantity * curr.price)
+            return acc
+
+        }, 0)
+
+        return total
+    }
+
     // research adding local state even though you have data from redux
     // add redux persist
 
@@ -54,6 +69,11 @@ class Cart extends React.Component {
                                     </div>
                                 })
                             }
+
+                            <div className="text-wrapper">
+                                <h1>Total</h1>
+                                <h2> ${this.renderTotal()} </h2>
+                            </div>
 
                             <div className="button-wrapper">
                                 <Link to="/checkout" >Go To CheckOut</Link>

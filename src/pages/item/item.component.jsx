@@ -99,6 +99,11 @@ class Item extends React.Component {
             size,
             search
         }))
+
+        this.setState({
+            quantity: 1,
+            size: ""
+        }, () => console.log(this.state))
     }
 
     render() {
@@ -158,12 +163,12 @@ class Item extends React.Component {
 
                                     <label htmlFor="quantity">Quantity</label>
 
-                                    <input type="text" placeholder="Quantity" name="quantity" onChange={this.handleChange} required />
+                                    <input type="text" placeholder="Quantity" name="quantity" onChange={this.handleChange} required value={this.state.quantity} />
 
 
                                     <label>Select Your Size</label>
 
-                                    <select name="" id="" onChange={this.handleChange} name="size" required>
+                                    <select name="" id="" onChange={this.handleChange} name="size" required value={this.state.size}  >
                                         <option value="">---</option>
                                         {item.sizes ? item.sizes.map((size, index) => <option key={index} value={size}> {size} </option>) : null}
                                     </select>
