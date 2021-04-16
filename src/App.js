@@ -29,7 +29,7 @@ class App extends React.Component {
 
 
     // set authentication
-      auth.onAuthStateChanged( async  user => {
+      this.unsubscribe = auth.onAuthStateChanged( async  user => {
 
              const userRef  = await createUserProfile(user)
 
@@ -48,6 +48,10 @@ class App extends React.Component {
              }
              
       })
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe = null
   }
  
 
