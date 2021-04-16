@@ -1,6 +1,6 @@
 // todo --add sizies to data
 
-// 31 items
+// 32 items
 
 // change to objects for data normalization
 
@@ -71,6 +71,13 @@ const SHOP_DATA = [
                     id:32,
                     name: "AIR JORDAN 1 WMNS MID 'APRICOT'",
                     price: 219.99, 
+                    sizes: [36, 37, 38]
+                },
+
+                 {
+                    id:33,
+                    name: "AIR JORDAN 1 RETRO HIGH OG 'BLACK METALLIC GOLD'",
+                    price: 239.99, 
                     sizes: [36, 37, 38]
                 },
 

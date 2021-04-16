@@ -1,7 +1,7 @@
 import React from "react"
 import Landing from "../../components/landing/landing.component"
 import CollectionPreview from "../../components/collection-preview/collection-preview.component"
-
+import TopPick from "../../components/top-pick/top-pick.component"
 const Home = () => {
     return <div>
 
@@ -11,6 +11,8 @@ const Home = () => {
         <CollectionPreview title="adidas" />
         <CollectionPreview title="women" />
         <CollectionPreview title="kids" />
+
+        <TopPick />
 
     </div>
 }
