@@ -1,16 +1,16 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { auth } from "../../firebase/firebase.utils"
+import { auth, createUserProfile } from "../../firebase/firebase.utils"
 
 class Register extends React.Component {
 
     constructor() {
         super()
         this.state = {
-            displayName: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
+            displayName: "thomas",
+            email: "thomas@gmail.com",
+            password: "password",
+            confirmPassword: "password",
             error: ""
         }
     }
@@ -18,16 +18,20 @@ class Register extends React.Component {
 
         e.preventDefault()
 
-        const { email, password } = this.state;
+        const { email, password, displayName } = this.state;
 
 
         try {
+
             const { user } = await auth.createUserWithEmailAndPassword(email, password)
 
-            if (user) {
+            await createUserProfile({
+                ...user,
+                displayName,
+                createdAt: new Date()
+            })
 
-                this.props.history.push("/login")
-            }
+
         } catch (error) {
 
             this.setState({

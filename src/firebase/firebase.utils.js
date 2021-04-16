@@ -28,3 +28,29 @@ const config = {
       firestore,
       signInWithGoogle
   }
+
+
+  export const createUserProfile = async (userAuth, additionalData) => {
+
+      if(!userAuth) return
+
+      const userRef =  firestore.doc(`users/${userAuth.uid}`)
+
+      const snapshot = await userRef.get();
+
+      if(!snapshot.exist) {
+
+        const { displayName, email }  = userAuth
+        try {
+              await userRef.set({
+                    displayName,
+                    email
+              })
+        }catch(error) {
+
+
+        }
+      }
+
+      return userRef;
+  }

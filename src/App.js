@@ -11,10 +11,10 @@ import Checkout from "./pages/checkout/checkout.component"
 import Login from "./pages/login/login.component"
 import Register from "./pages/register/register.component"
 import Footer from "./components/footer/footer.component"
-import { auth } from "./firebase/firebase.utils"
-import { setCurrentUser} from  "./redux/user/user.action"
+import { auth, createUserProfile } from "./firebase/firebase.utils"
 import {getShopData} from "./redux/shop/shop.action"
 import Profile from "./pages/profile /profile.component"
+import { setCurrentUser} from "./redux/user/user.action"
 
 class App extends React.Component {
 
@@ -29,17 +29,24 @@ class App extends React.Component {
 
 
     // set authentication
-      this.unsubscribe = auth.onAuthStateChanged( user => {
+      auth.onAuthStateChanged( async  user => {
 
-              this.props.dispatch(setCurrentUser(user))
+             const userRef  = await createUserProfile(user)
 
-              if(user) {
+             if(userRef) {
 
-                this.props.dispatch( setCurrentUser(user))
-              } else {
+              userRef.onSnapshot ( snapshot => {
 
-                this.props.dispatch( setCurrentUser(null))
-              }
+                  const userData = snapshot.data()
+
+                  this.props.dispatch(setCurrentUser(userData))
+
+             })
+
+             } else {
+               this.props.dispatch( setCurrentUser(null))
+             }
+             
       })
   }
  
@@ -57,7 +64,7 @@ class App extends React.Component {
                 <Route exact path="/cart" component={Cart} />
                 <Route exact path="/checkout" component={Checkout} />
                 <Route exact  path="/login"  render={() => this.props.currentUser ?  <Profile />  :  <Login />   } />
-                <Route exact  path="/register" component={Register} />
+                <Route exact  path="/register" render={() => this.props.currentUser ? <Profile/> : <Register />  } />
                 <Route  path="/profile"  render={() => this.props.currentUser ?  <Profile />  : <Login />} />
             </Switch>
 

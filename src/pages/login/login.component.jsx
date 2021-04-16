@@ -2,7 +2,8 @@ import React from "react"
 import { Link, Redirect } from "react-router-dom"
 import { signInWithGoogle, auth } from "../../firebase/firebase.utils"
 import { connect } from "react-redux"
-import { setCurrentUser } from "../../redux/user/user.action"
+import { createUserProfile } from "../../firebase/firebase.utils"
+
 
 class Login extends React.Component {
 
@@ -32,7 +33,7 @@ class Login extends React.Component {
         try {
             const { user } = await auth.signInWithEmailAndPassword(email, password)
 
-            console.log(user)
+
         } catch (error) {
 
             console.log(error.message)
