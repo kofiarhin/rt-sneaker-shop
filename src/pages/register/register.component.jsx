@@ -63,10 +63,10 @@ class Register extends React.Component {
 
                 <form onSubmit={this.handleSubmit}>
 
-                    <FormInput label="Display Name" type="text" placeholder="Display Name" name="displayName" onChange={this.handleChange} />
-                    <FormInput label="Email Address" type="text" placeholder="Email Address" name="email" onChange={this.handleChange} />
-                    <FormInput label="Password" type="password" placeholder="Password" name="password" onChange={this.handleChange} />
-                    <FormInput label="Confirm Password" type="password" placeholder="Confirm Password" name="confirmPassword" onChange={this.handleChange} />
+                    <FormInput label="Display Name" type="text" placeholder="Display Name" name="displayName" onChange={this.handleChange} required />
+                    <FormInput label="Email Address" type="text" placeholder="Email Address" name="email" onChange={this.handleChange} required />
+                    <FormInput label="Password" type="password" placeholder="Password" name="password" onChange={this.handleChange} required />
+                    <FormInput label="Confirm Password" type="password" placeholder="Confirm Password" name="confirmPassword" onChange={this.handleChange} required />
 
                     <p className="error">{this.state.error} </p>
 
