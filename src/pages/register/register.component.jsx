@@ -1,6 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { auth, createUserProfile } from "../../firebase/firebase.utils"
+import FormInput from "../../components/form-input/form-input.component"
+import CustomButton from "../../components/custom-button/custom-button.component"
 
 class Register extends React.Component {
 
@@ -61,14 +63,16 @@ class Register extends React.Component {
 
                 <form onSubmit={this.handleSubmit}>
 
-                    <input type="text" placeholder="Display Name" name="displayName" onChange={this.handleChange} />
-                    <input type="text" placeholder="Email Address" name="email" onChange={this.handleChange} />
-                    <input type="password" placeholder="Password" name="password" onChange={this.handleChange} />
-                    <input type="password" placeholder="Confirm Password" name="confirmPassword" onChange={this.handleChange} />
+                    <FormInput label="Display Name" type="text" placeholder="Display Name" name="displayName" onChange={this.handleChange} />
+                    <FormInput label="Email Address" type="text" placeholder="Email Address" name="email" onChange={this.handleChange} />
+                    <FormInput label="Password" type="password" placeholder="Password" name="password" onChange={this.handleChange} />
+                    <FormInput label="Confirm Password" type="password" placeholder="Confirm Password" name="confirmPassword" onChange={this.handleChange} />
 
                     <p className="error">{this.state.error} </p>
 
-                    <button>Submit</button>
+                    <CustomButton>
+                        Register
+                    </CustomButton>
 
                     <p>Already have an account ? <Link to="/login"> Login Here</Link> </p>
                 </form>

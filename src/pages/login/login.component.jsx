@@ -3,6 +3,8 @@ import { Link, Redirect } from "react-router-dom"
 import { signInWithGoogle, auth } from "../../firebase/firebase.utils"
 import { connect } from "react-redux"
 import { createUserProfile } from "../../firebase/firebase.utils"
+import FormInput from "../../components/form-input/form-input.component"
+import CustomButton from "../../components/custom-button/custom-button.component"
 
 
 class Login extends React.Component {
@@ -59,10 +61,17 @@ class Login extends React.Component {
             <div className="form-wrapper">
                 <form action="" onSubmit={this.handleSubmit}>
 
-                    <input type="text" name="email" placeholder="Email Address" onChange={this.handleChange} />
-                    <input type="password" name="password" placeholder="Password" onChange={this.handleChange} />
-                    <button>Login</button>
-                    <button className="google" onClick={signInWithGoogle}>Login With Google</button>
+                    <FormInput label="Email" type="text" name="email" placeholder="Email Address" onChange={this.handleChange} />
+
+
+                    <FormInput label="Password" type="password" name="password" placeholder="Password" onChange={this.handleChange} />
+
+
+
+                    <CustomButton> Login </CustomButton>
+                    <CustomButton className="google" onClick={signInWithGoogle}>Login With Google</CustomButton>
+
+                    {/* <button className="google" onClick={signInWithGoogle}>Login With Google</button> */}
 
                     <p>Don't have an account? <Link to="/register">signup here</Link> </p>
                 </form>
