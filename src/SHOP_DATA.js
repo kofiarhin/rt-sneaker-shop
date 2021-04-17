@@ -186,6 +186,14 @@ const SHOP_DATA = [
                     description: "some details about product",
                     sizes: [32, 38, 45]
                 },
+
+                {
+                    id:34,
+                    name: "NIKE DUNK HIGH SP 'IOWA' 2020",
+                    price: 209.99,
+                    description: "some details about product",
+                    sizes: [32, 38, 45]
+                },
             ]
         },
 
