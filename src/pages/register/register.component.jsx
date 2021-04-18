@@ -9,13 +9,14 @@ class Register extends React.Component {
     constructor() {
         super()
         this.state = {
-            displayName: "thomas",
-            email: "thomas@gmail.com",
-            password: "password",
-            confirmPassword: "password",
+            displayName: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
             error: ""
         }
     }
+
     handleSubmit = async e => {
 
         e.preventDefault()
@@ -63,10 +64,13 @@ class Register extends React.Component {
 
                 <form onSubmit={this.handleSubmit}>
 
-                    <FormInput label="Display Name" type="text" placeholder="Display Name" name="displayName" onChange={this.handleChange} required />
-                    <FormInput label="Email Address" type="text" placeholder="Email Address" name="email" onChange={this.handleChange} required />
-                    <FormInput label="Password" type="password" placeholder="Password" name="password" onChange={this.handleChange} required />
-                    <FormInput label="Confirm Password" type="password" placeholder="Confirm Password" name="confirmPassword" onChange={this.handleChange} required />
+                    <FormInput label="Display Name" type="text" placeholder="Display Name" name="displayName" handleChange={this.handleChange} required />
+
+                    <FormInput label="Email Address" type="text" placeholder="Email Address" name="email" handleChange={this.handleChange} required />
+
+                    <FormInput label="Password" type="password" placeholder="Password" name="password" handleChange={this.handleChange} required />
+
+                    <FormInput label="Confirm Password" type="password" placeholder="Confirm Password" name="confirmPassword" handleChange={this.handleChange} required />
 
                     <p className="error">{this.state.error} </p>
 
