@@ -1,25 +1,30 @@
 .top-pick
-    padding: 2rem 0rem
-    min-height: 80vh
-    .slug
-        text-align: center
-        margin-bottom: 2rem
+    img
+        width: 100%
+
     .wrapper
         display: grid
         grid-template-columns: repeat(2, 1fr)
         grid-gap: 20px
-        img
-            width: 100%
-        .content-wrapper
-            h2
-                margin-bottom: 1rem
+        .thumb-wrapper
+            display: grid
+            grid-template-columns: repeat(5, 1fr)
+            img
+                width: 100%
 
 @media(max-width: 800px)
     .top-pick .wrapper
-        grid-template-columns: 1fr
-        .image-wrapper
-            img
-                width: 500px
-                max-width: 90%
-                display: block
-                margin: 0 auto
+        display: block
+        .form-wrapper
+            background: orange
+        img
+            max-width: 500px
+            width: 100%
+            max-widht: 100%
+            display: block
+            margin: 0rem auto 2rem
+            cursor: pointer
+
+@media(max-width: 400px)
+    .top-pick .wrapper img
+        max-width: 400px

@@ -32,7 +32,9 @@ class Item extends React.Component {
         console.log("item", { item })
         this.setState({
             search,
-            item
+            item: {
+                ...item, title: search
+            }
         })
 
 

@@ -54,7 +54,7 @@ class Cart extends React.Component {
                                     return <div className="cart-unit" key={index}>
 
                                         <div className="image-wrapper">
-                                            <img src={`/img/${item.search}/${item.name}/img-1.jpeg`} alt="" />
+                                            <img src={`/img/${item.title}/${item.name}/img-1.jpeg`} alt="" />
                                         </div>
 
                                         <div className="content">
