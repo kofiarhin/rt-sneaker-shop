@@ -38,9 +38,12 @@ const config = {
 
       const snapshot = await userRef.get();
 
-      if(!snapshot.exist) {
+      if(!snapshot.exists) {
 
         const { displayName, email }  = userAuth
+
+  
+
         try {
               await userRef.set({
                     displayName,

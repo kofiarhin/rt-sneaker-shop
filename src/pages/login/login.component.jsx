@@ -13,7 +13,8 @@ class Login extends React.Component {
         super()
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            error: ""
         }
     }
 
@@ -35,10 +36,13 @@ class Login extends React.Component {
         try {
             const { user } = await auth.signInWithEmailAndPassword(email, password)
 
+            await createUserProfile(user)
 
         } catch (error) {
 
-            console.log(error.message)
+            this.setState({
+                error: error.message
+            })
         }
 
 
@@ -61,14 +65,16 @@ class Login extends React.Component {
             <div className="form-wrapper">
                 <form action="" onSubmit={this.handleSubmit}>
 
-                    <FormInput label="Email" type="text" name="email" placeholder="Email Address" onChange={this.handleChange} />
+                    <FormInput label="Email" type="text" name="email" placeholder="Email Address" handleChange={this.handleChange} value={this.email} />
 
 
-                    <FormInput label="Password" type="password" name="password" placeholder="Password" onChange={this.handleChange} />
+                    <FormInput label="Password" type="password" name="password" placeholder="Password" handleChange={this.handleChange} value={this.state.password} />
 
 
+                    <p className="error"> {this.state.error} </p>
 
                     <CustomButton> Login </CustomButton>
+
                     <CustomButton className="google" onClick={signInWithGoogle}>Login With Google</CustomButton>
 
                     {/* <button className="google" onClick={signInWithGoogle}>Login With Google</button> */}

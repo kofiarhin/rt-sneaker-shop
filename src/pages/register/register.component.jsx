@@ -64,7 +64,7 @@ class Register extends React.Component {
 
                 <form onSubmit={this.handleSubmit}>
 
-                    <FormInput label="Display Name" type="text" placeholder="Display Name" name="displayName" handleChange={this.handleChange} required />
+                    <FormInput label="Display Name" type="text" placeholder="Display Name" name="displayName" handleChange={this.handleChange} value={this.state.displayName} required />
 
                     <FormInput label="Email Address" type="text" placeholder="Email Address" name="email" handleChange={this.handleChange} required />
 
