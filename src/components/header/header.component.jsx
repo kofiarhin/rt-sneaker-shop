@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom"
 import CartIcon from "../cartIcon/cart-icon.component"
 import { connect } from "react-redux"
 import { auth } from "../../firebase/firebase.utils"
+import Search from "../search/search.component"
 
 import "./header.styles.sass"
 
@@ -23,6 +24,7 @@ class Header extends React.Component {
                     <h1>Kicks</h1>
                 </Link>
 
+
                 <nav>
                     <Link to="/">Home</Link>
                     <Link to="/shop" >Shop</Link>
@@ -36,6 +38,10 @@ class Header extends React.Component {
                     }
 
                 </nav>
+            </div>
+
+            <div className="container">
+                <Search />
             </div>
 
             <div className="container">

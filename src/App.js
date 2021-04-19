@@ -15,6 +15,7 @@ import { auth, createUserProfile } from "./firebase/firebase.utils"
 import {getShopData} from "./redux/shop/shop.action"
 import Profile from "./pages/profile /profile.component"
 import { setCurrentUser} from "./redux/user/user.action"
+import SearchPage from "./pages/search/search-page.component"
 
 class App extends React.Component {
 
@@ -70,6 +71,7 @@ class App extends React.Component {
                 <Route exact  path="/login"  render={() => this.props.currentUser ?  <Profile />  :  <Login />   } />
                 <Route exact  path="/register" render={() => this.props.currentUser ? <Profile/> : <Register />  } />
                 <Route  path="/profile"  render={() => this.props.currentUser ?  <Profile />  : <Login />} />
+                <Route path="/search/:search" exact component={SearchPage} />
             </Switch>
 
             <Footer /> 

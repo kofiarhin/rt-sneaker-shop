@@ -102,6 +102,7 @@ class TopPick extends React.Component {
                         <h2> {name}</h2>
 
                         <form action="" onSubmit={this.handleSubmit}>
+
                             <FormInput type="text" name="quantity" label="Quantity" placeholder="1" handleChange={this.handleChange} value={this.state.quantity} required />
 
 
