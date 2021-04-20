@@ -43,9 +43,10 @@ class Search extends React.Component {
 
         return <div className="search">
 
+
             <form onSubmit={this.handleSubmit}>
                 <FormInput placeholder="Search Product" name="search" handleChange={this.handleChange} value={this.state.search} />
-                <CustomButton> Search</CustomButton>
+                <CustomButton> Searc</CustomButton>
             </form>
 
         </div>
