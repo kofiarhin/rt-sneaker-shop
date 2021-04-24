@@ -41,10 +41,6 @@ class Header extends React.Component {
             </div>
 
             <div className="container">
-                <Search />
-            </div>
-
-            <div className="container">
                 <div className="links">
                     <Link to="/shop/jordan">Jordans</Link>
                     <Link to="/shop/adidas">Adidas</Link>

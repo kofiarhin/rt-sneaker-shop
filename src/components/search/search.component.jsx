@@ -5,6 +5,8 @@ import FormInput from "../form-input/form-input.component"
 import CustomButton from "../custom-button/custom-button.component"
 import { connect } from "react-redux"
 import { searchItem } from "../../redux/search/search.action"
+
+
 class Search extends React.Component {
 
     constructor() {
@@ -37,6 +39,8 @@ class Search extends React.Component {
         this.setState({
             search: ""
         })
+
+
     }
 
     render() {
@@ -46,7 +50,7 @@ class Search extends React.Component {
 
             <form onSubmit={this.handleSubmit}>
                 <FormInput placeholder="Search Product" name="search" handleChange={this.handleChange} value={this.state.search} />
-                <CustomButton> Searc</CustomButton>
+                <CustomButton> Search</CustomButton>
             </form>
 
         </div>
