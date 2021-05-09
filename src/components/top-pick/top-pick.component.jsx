@@ -22,12 +22,15 @@ class TopPick extends React.Component {
 
     componentDidMount() {
 
+
         const { shopData } = this.props
         const title = "jordan"
 
-        const { items } = shopData.find(item => (item.title === title));
+        const { items } = shopData.find(item => (item.title === title))
 
-        const item = items[0]
+        console.log(items)
+
+        const item = items[9]
 
         this.setState({
             item: { ...item, title },
